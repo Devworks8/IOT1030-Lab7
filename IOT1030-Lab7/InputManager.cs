@@ -6,7 +6,6 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 using Psim.Materials;
-using Psim.ModelComponents;
 
 
 namespace Psim.IOManagers
