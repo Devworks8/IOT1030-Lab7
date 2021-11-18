@@ -5,19 +5,19 @@ namespace Psim.Particles
 {
 	public abstract class Particle
 	{
-		private Point position = new();
-		private Vector direction = new();
+		private Point position = new Point();
+		private Vector direction = new Vector();
 		public double Speed { get; protected set; }
 
 		public Point Position
 		{
-			get => new(position.X, position.Y);
+			get => new Point(position.X, position.Y);
 			set => position = value;
 		}
 
 		public Vector Direction
 		{
-			get => new(direction.DX, direction.DY);
+			get => new Vector(direction.DX, direction.DY);
 			set => direction = value;
 		}
 

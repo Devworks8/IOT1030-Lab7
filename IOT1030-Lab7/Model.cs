@@ -44,7 +44,11 @@ namespace Psim
 
 		public void RunSimulation()
 		{
-			Console.WriteLine("Run Simulation has not been implemented!");
+			SetSurfaces(tEq);
+			double totalEngery = GetTotalEnergy();
+			double effEnnergy = totalEngery / NUM_PHONONS;
+            SetEmitPhonons(tEq, effEnnergy, TIME_STEP);
+            Console.WriteLine("Run Simulation has not been implemented!");
 		}
 
 		public void AddSensor(int sensorID, double initTemp)
@@ -72,7 +76,7 @@ namespace Psim
 				if (sensor.ID == sensorID)
 				{
 					cells.Add(new Cell(length, width, sensor));
-					sensor.AddToArea(cells[^1].Area);
+					sensor.AddToArea(cells[cells.Count - 1].Area);
 					return; // Minor efficiency and also to ensure the method does not throw unnecessarily
 				}	
 			}
@@ -99,8 +103,8 @@ namespace Psim
 				cells[i].SetTransitionSurface(SurfaceLocation.left, cells[i - 1]);
 				cells[i].SetTransitionSurface(SurfaceLocation.right, cells[i + 1]);
 			}
-			cells[^1].SetEmitSurface(SurfaceLocation.right, lowTemp);
-			cells[^1].SetTransitionSurface(SurfaceLocation.left, cells[numCells - 2]);
+			cells[cells.Count - 1].SetEmitSurface(SurfaceLocation.right, lowTemp);
+			cells[cells.Count - 1].SetTransitionSurface(SurfaceLocation.left, cells[numCells - 2]);
 		}
 		
 		/// <summary>

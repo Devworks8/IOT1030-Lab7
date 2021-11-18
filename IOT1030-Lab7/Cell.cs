@@ -30,8 +30,8 @@ namespace Psim.ModelComponents
 	public class Cell : Rectangle
 	{ 
 		private const int NUM_SURFACES = 4;
-		private List<Phonon> phonons = new() { };
-		private List<Phonon> incomingPhonons = new() { };
+		private List<Phonon> phonons = new List<Phonon>() { };
+		private List<Phonon> incomingPhonons = new List<Phonon>() { };
 		private ISurface[] surfaces = new ISurface[NUM_SURFACES];
 		private Sensor sensor;
 
@@ -240,7 +240,7 @@ namespace Psim.ModelComponents
 
 		public List<EmitSurfaceData> EmitPhononData(double rand)
 		{
-			List<EmitSurfaceData> emitPhononData = new() { };
+			List<EmitSurfaceData> emitPhononData = new List<EmitSurfaceData>() { };
 			foreach (var surface in surfaces)
 			{
 				if (surface is EmitSurface emitSurface)

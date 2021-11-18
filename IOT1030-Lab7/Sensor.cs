@@ -23,9 +23,9 @@ namespace Psim.ModelComponents
 	public class Sensor
 	{
 		private double heatCapacity;
-		private List<double> temperatures = new() { };
-		private List<double> xFluxes = new() { };
-		private List<double> yFluxes = new() { };
+		private List<double> temperatures = new List<double>() { };
+		private List<double> xFluxes = new List<double>() { };
+		private List<double> yFluxes = new List<double>() { };
 		public int ID { get; }
 		public double InitTemp { get; }
 		public Material Material { get; }
@@ -84,7 +84,7 @@ namespace Psim.ModelComponents
 
 		private void UpdateParams()
 		{
-			Temperature = temperatures[^1];
+			Temperature = temperatures[temperatures.Count - 1];
 			BaseTable = Material.BaseData(Temperature, out heatCapacity);
 			ScatterTable = Material.ScatterTable(Temperature);
 		}

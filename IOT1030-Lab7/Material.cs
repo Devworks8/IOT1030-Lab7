@@ -6,7 +6,7 @@ namespace Psim.Materials
 {
 	public class Material
 	{
-		private static Random rand = new();
+		private static Random rand = new Random();
 
 		private const uint NUM_FREQ_BINS = 1000;
 		private const double HBAR = 1.054517e-34;
