@@ -48,7 +48,6 @@ namespace Psim
 			double totalEngery = GetTotalEnergy();
 			double effEnnergy = totalEngery / NUM_PHONONS;
             SetEmitPhonons(tEq, effEnnergy, TIME_STEP);
-            Console.WriteLine("Run Simulation has not been implemented!");
 		}
 
 		public void AddSensor(int sensorID, double initTemp)
